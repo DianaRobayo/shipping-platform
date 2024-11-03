@@ -3,7 +3,7 @@
 import React, { useContext, useState } from 'react'
 import { createContextApi } from '@/context/createContextApi';
 
-import { Box, Tab, Paper, styled, Typography, Alert, Stack, Button } from '@mui/material';
+import { Box, Tab, Paper, styled, Typography, Alert, Stack, Button, IconButton } from '@mui/material';
 import LinearProgress from '@mui/material/LinearProgress';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import Grid from '@mui/material/Grid2';
@@ -72,40 +72,52 @@ const Tabs = () => {
           <TabPanel value="1" sx={{ color: 'black' }}>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
               <Grid size={{ xs: 12, sm: 12, md: 2 }}>
-                <p className='copy__title'> Cliente: </p>
+                <span className='copy__title'> Cliente: </span>
                 <Button startIcon={<FilterNone className='button__copy__icon' />} onClick={() => copyContent('data-nit')}
                   className='button__copy__text'>
                 </Button>
-                <Typography variant="body1" id="data-nit" className='copy__title__content'>
-                  Nit: {(guides.cliente?.nit) ? guides.cliente?.nit : 'Sin información'}
-                  {(guides.cliente?.razon_social) ? guides.cliente?.razon_social : 'Sin información'}
-                </Typography>
+                <Grid size={8} className="copy__title__grid">
+                  <Typography variant="body1" id="data-nit" className='copy__title__content'>
+                    Nit: {(guides.cliente?.nit) ? guides.cliente?.nit : 'Sin información'}
+                  </Typography>
+                  <Typography variant="body1" id="data-remitente" className='copy__title__content'>
+                    {(guides.cliente?.razon_social) ? guides.cliente?.razon_social : 'Sin información'}
+                  </Typography>
+                </Grid>
               </Grid>
 
               <Grid size={{ xs: 12, sm: 12, md: 3 }}>
-                <p className='copy__title'> Remitente: </p>
+                <span className='copy__title'> Remitente: </span>
                 <Button startIcon={<FilterNone className='button__copy__icon' />} onClick={() => copyContent('data-remitente')}
                   className='button__copy__text'>
                 </Button>
-                <Typography variant="body1" id="data-remitente" className='copy__title__content'>
-                  {(guides.remitente?.nombre) ? guides.remitente?.nombre : 'Sin información'}
-                  {(guides.remitente?.zonificacion?.direccion) ? guides.remitente?.zonificacion?.direccion : 'Sin información'}
-                </Typography>
+                <Grid size={8} className="copy__title__grid">
+                  <Typography variant="body1" id="data-remitente" className='copy__title__content'>
+                    {(guides.remitente?.nombre) ? guides.remitente?.nombre : 'Sin información'}
+                  </Typography>
+                  <Typography variant="body1" id="data-remitente" className='copy__title__content'>
+                    {(guides.remitente?.zonificacion?.direccion) ? guides.remitente?.zonificacion?.direccion : 'Sin información'}
+                  </Typography>
+                </Grid>
               </Grid>
 
               <Grid size={{ xs: 12, sm: 12, md: 3 }}>
-                <p className='copy__title'> Destinatario: </p>
+                <span className='copy__title'> Destinatario: </span>
                 <Button startIcon={<FilterNone className='button__copy__icon' />} onClick={() => copyContent('data-destinatario')}
                   className='button__copy__text'>
                 </Button>
-                <Typography variant="body1" id="data-destinatario" className='copy__title__content'>
-                  {(guides.destinatario?.nombre) ? guides.destinatario?.nombre : 'Sin información'}
-                  {(guides.destinatario?.zonificacion?.direccion) ? guides.destinatario?.zonificacion?.direccion : 'Sin información'}
-                </Typography>
+                <Grid size={8} className="copy__title__grid">
+                  <Typography variant="body1" id="data-destinatario" className='copy__title__content'>
+                    {(guides.destinatario?.nombre) ? guides.destinatario?.nombre : 'Sin información'}
+                  </Typography>
+                  <Typography variant="body1" id="data-destinatario" className='copy__title__content'>
+                    {(guides.destinatario?.zonificacion?.direccion) ? guides.destinatario?.zonificacion?.direccion : 'Sin información'}
+                  </Typography>
+                </Grid>
               </Grid>
 
               <Grid size={{ xs: 12, sm: 12, md: 2 }}>
-                <p className='copy__title'> Terminal Origen: </p>
+                <span className='copy__title'> Terminal Origen: </span>
                 <Button startIcon={<FilterNone className='button__copy__icon' />} onClick={() => copyContent('terminal-origen')}
                   className='button__copy__text'>
                 </Button>
@@ -115,7 +127,7 @@ const Tabs = () => {
               </Grid>
 
               <Grid size={{ xs: 12, sm: 12, md: 2 }}>
-                <p className='copy__title'> Terminal Destino: </p>
+                <span className='copy__title'> Terminal Destino: </span>
                 <Button startIcon={<FilterNone className='button__copy__icon' />} onClick={() => copyContent('terminal-destino')}
                   className='button__copy__text'>
                 </Button>
@@ -125,7 +137,7 @@ const Tabs = () => {
               </Grid>
 
               <Grid size={{ xs: 12, sm: 12, md: 2 }}>
-                <p className='copy__title'> Nivel/Servicio: </p>
+                <span className='copy__title'> Nivel/Servicio: </span>
                 <Button startIcon={<FilterNone className='button__copy__icon' />} onClick={() => copyContent('nivel')}
                   className='button__copy__text'>
                 </Button>
@@ -135,7 +147,7 @@ const Tabs = () => {
               </Grid>
 
               <Grid size={{ xs: 12, sm: 12, md: 3 }}>
-                <p className='copy__title'> Teléfono Remitente: </p>
+                <span className='copy__title'> Teléfono Remitente: </span>
                 <Button startIcon={<FilterNone className='button__copy__icon' />} onClick={() => copyContent('tel-remitente')}
                   className='button__copy__text'>
                 </Button>
@@ -145,7 +157,7 @@ const Tabs = () => {
               </Grid>
 
               <Grid size={{ xs: 12, sm: 12, md: 3 }}>
-                <p className='copy__title'> Teléfono Destinatario: </p>
+                <span className='copy__title'> Teléfono Destinatario: </span>
                 <Button startIcon={<FilterNone className='button__copy__icon' />} onClick={() => copyContent('tel-destino')}
                   className='button__copy__text'>
                 </Button>
@@ -155,7 +167,7 @@ const Tabs = () => {
               </Grid>
 
               <Grid size={{ xs: 12, sm: 12, md: 2 }}>
-                <p className='copy__title'> Ciudad Origen: </p>
+                <span className='copy__title'> Ciudad Origen: </span>
                 <Button startIcon={<FilterNone className='button__copy__icon' />} onClick={() => copyContent('ciudad-origen')}
                   className='button__copy__text'>
                 </Button>
@@ -165,7 +177,7 @@ const Tabs = () => {
               </Grid>
 
               <Grid size={{ xs: 12, sm: 12, md: 2 }}>
-                <p className='copy__title'> Ciudad Destino: </p>
+                <span className='copy__title'> Ciudad Destino: </span>
                 <Button startIcon={<FilterNone className='button__copy__icon' />} onClick={() => copyContent('ciudad-destino')}
                   className='button__copy__text'>
                 </Button>
@@ -175,7 +187,7 @@ const Tabs = () => {
               </Grid>
 
               <Grid size={{ xs: 12, sm: 12, md: 2 }}>
-                <p className='copy__title'> Observaciones: </p>
+                <span className='copy__title'> Observaciones: </span>
                 <Button startIcon={<FilterNone className='button__copy__icon' />} onClick={() => copyContent('observacion')}
                   className='button__copy__text'>
                 </Button>
@@ -185,7 +197,7 @@ const Tabs = () => {
               </Grid>
 
               <Grid size={{ xs: 12, sm: 12, md: 3 }}>
-                <p className='copy__title'> Producto: </p>
+                <span className='copy__title'> Producto: </span>
                 <Button startIcon={<FilterNone className='button__copy__icon' />} onClick={() => copyContent('producto')}
                   className='button__copy__text'>
                 </Button>
@@ -195,7 +207,7 @@ const Tabs = () => {
               </Grid>
 
               <Grid size={{ xs: 12, sm: 12, md: 3 }}>
-                <p className='copy__title'> Contenido: </p>
+                <span className='copy__title'> Contenido: </span>
                 <Button startIcon={<FilterNone className='button__copy__icon' />} onClick={() => copyContent('contenido')}
                   className='button__copy__text'>
                 </Button>
@@ -205,7 +217,7 @@ const Tabs = () => {
               </Grid>
 
               <Grid size={{ xs: 12, sm: 12, md: 2 }}>
-                <p className='copy__title'> Referencia: </p>
+                <span className='copy__title'> Referencia: </span>
                 <Button startIcon={<FilterNone className='button__copy__icon' />} onClick={() => copyContent('referencia')}
                   className='button__copy__text'>
                 </Button>
@@ -216,9 +228,15 @@ const Tabs = () => {
             </Grid>
           </TabPanel>
 
-          <TabPanel value="2" sx={{ color: 'black' }}>Información de facturación</TabPanel>
-          <TabPanel value="3" sx={{ color: 'black' }}>Novedades y soluciones</TabPanel>
-          <TabPanel value="4" sx={{ color: 'black' }}>Información de entrega</TabPanel>
+          <TabPanel value="2" sx={{ color: 'black' }}>
+            <span className='copy__title'>Información de facturación</span>
+          </TabPanel>
+          <TabPanel value="3" sx={{ color: 'black' }}>
+            <span className='copy__title'>Novedades y soluciones</span>
+          </TabPanel>
+          <TabPanel value="4" sx={{ color: 'black' }}>
+            <span className='copy__title'>Información de entrega</span>
+          </TabPanel>
         </TabContext>
       </Box>
     </div >

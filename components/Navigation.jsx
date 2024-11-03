@@ -51,17 +51,17 @@ const Navigation = () => {
             Tracking
           </Typography>
 
-          <Grid container spacing={2}>
-            <Grid xs={12} sm={6}>
-              <Typography variant="text">
+          <Grid container className="terminal__container" >
+            <Grid xs={12} sm={12}>
+              <Typography variant="text" color="secondary">
                 Nombre de usuario
               </Typography>
             </Grid>
 
-            <Grid xs={12} sm={6}>
-              <Button className="button__terminal" onClick={handleList} aria-controls="menu-terminal">
-                <Link href="/" sx={{ textDecoration: 'none'}} className="button__terminal__link">
-                  Terminal:
+            <Grid xs={12} sm={12}>
+              <Button className="terminal__button" onClick={handleList} aria-controls="menu-terminal">
+                <Link href="/" sx={{ textDecoration: 'none'}} className="terminal__button__link">
+                  Terminal: 01 BOG
                 </Link>
               </Button>
               <Menu

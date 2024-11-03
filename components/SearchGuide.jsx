@@ -53,7 +53,8 @@ const SearchGuide = () => {
                     {...register("search", { required: true })} />
                 </Grid>
               </FormControl>
-              <Grid size={{ xs: 12, md: 12 }}>
+              <Grid size={{ xs: 12, md: 12 }}
+                className="search__container__link">
                 <a href='/'> Buscar múltiples guías → </a>
               </Grid>
 

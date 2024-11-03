@@ -5,18 +5,27 @@ const theme = createTheme({
   typography: {
     fontFamily: 'var(--font-roboto)',
     title: {
-      fontSize: '24px',
+      fontSize: '20px',
       opacity: 1,
       textAlign: 'left',
+      '@media (min-width:480px)': {
+        fontSize: '24px', 
+      },
     },
     subtitle: {
-      fontSize: '18px',
-    },
-    text: {
       fontSize: '14px',
       opacity: 1,
-      // textAlign: 'left',
-      color: '#0000008A'
+      '@media (min-width:480px)': {
+        fontSize: '18px', 
+      },
+    },
+    text: {
+      fontSize: '10px',
+      opacity: 1,
+      color: '#0000008A',
+      '@media (min-width:480px)': {
+        fontSize: '14px', 
+      },
     },
   },
   palette: {
@@ -31,6 +40,12 @@ const theme = createTheme({
     },
     quarter: {
       main: '#EE5A31', // Color cuarto
+    },
+    black: {
+      main: '#000000DE', // Color negro
+    },
+    orange: {
+      main: '#EE5A31', // Color naranja
     },
     background: {
       //   default: '#FFFFFF', // Fondo por defecto

@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Container, Typography } from '@mui/material';
+import { Container, Typography, IconButton } from '@mui/material';
 import { Search } from '@mui/icons-material';
 import Navigation from "@/components/Navigation";
 import HeaderDetail from '@/components/details/HeaderDetail';
@@ -14,12 +14,17 @@ const Detail = ({ params }) => {
   return (
     <div>
       <Navigation />
-      <Container>
-        <Typography variant="title" color="primary">
+      <Container className="detail">
+        <Typography className="detail__title" variant="title" color="secondary">
           Información General de Envío
-          <Search />
+          <IconButton size="large" aria-label="title"
+            aria-controls="title" aria-haspopup="true"
+            className='button__user' >
+            <Search className="detail__icon" color="black"
+              sx={{ fontSize: 18, background: 'terciary' }} />
+          </IconButton>
         </Typography>
-        <HeaderDetail/>
+        <HeaderDetail />
         <TimeLine />
         <Tabs />
         <SectionAccordion />

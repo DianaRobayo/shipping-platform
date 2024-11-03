@@ -1,25 +1,23 @@
 "use client";
 import React, { useContext } from 'react';
 import { createContextApi } from '@/context/createContextApi';
-import { Box, Alert, Stack } from '@mui/material';
+import { Box, Alert, Stack, Typography } from '@mui/material';
 import {
   Timeline, TimelineItem, TimelineSeparator,
   TimelineConnector, TimelineContent, TimelineOppositeContent,
   TimelineDot
 } from '@mui/lab';
 import LinearProgress from '@mui/material/LinearProgress';
-import { DepartureBoard, Search } from '@mui/icons-material';
+import { Business, LocalShipping } from '@mui/icons-material';
 
 const constantsLine = {
-  1: <DepartureBoard />,
-  5: <Search />
+  1: <Business color="blue" />,
+  5: <LocalShipping />
 }
-
 
 const TimeLine = () => {
   const { line, loadingLine, errorLine } = useContext(createContextApi);
   console.log('linea', errorLine)
-
 
   return (
     <div>
@@ -42,16 +40,19 @@ const TimeLine = () => {
           {line.map((item, index) => (
             <TimelineItem className="timeline__item" key={index} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <TimelineSeparator className='timeline__item__logo'>
-                <TimelineDot>
+                <TimelineDot className='timeline__item__logo__dot'>
                   {constantsLine[item.codigo]}
                 </TimelineDot>
               </TimelineSeparator>
 
-              <TimelineContent className='timeline__item__detail' sx={{ color: 'red' }}>
-                <p>
+              <TimelineContent className='timeline__item__detail'>
+                <Typography variant="text">
                   {item.fecha} {(item.hora) ? item.hora : null}
-                  <span>{item.descripcion} </span>
-                </p>
+                </Typography>
+
+                <Typography variant="text">
+                  {item.descripcion}
+                </Typography>
               </TimelineContent>
             </TimelineItem>
           ))}
