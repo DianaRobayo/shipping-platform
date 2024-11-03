@@ -107,7 +107,7 @@ const DataProvider = ({ children, dataTerminal }) => {
 
       let sortByDate = [];
       setLoadingLine(true);
-      if (typeof body !== 'undefined' && body !== null) {
+      if (body) {
         const dataLine = await axios.post(`https://api.coordinadora.com/cm-tracking-consulta-test/api/v1/remisiones`, body);
         console.log('dataLine', dataLine)
 

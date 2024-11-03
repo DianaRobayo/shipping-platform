@@ -15,7 +15,7 @@ const theme = createTheme({
     text: {
       fontSize: '14px',
       opacity: 1,
-      textAlign: 'left',
+      // textAlign: 'left',
       color: '#0000008A'
     },
   },

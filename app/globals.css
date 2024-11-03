@@ -2,19 +2,19 @@
   --background: #ffffff;
   --foreground: #171717;
   --gray-dark: #707070;
+  --gray-light: #0000000D;
+  --gray-light-secondary: #F2F2F2;
   --gray: #00000029;
-  --blue: #0A6BB6;
+  --gray-second: #0000008A;
+  --gray-terciary: #00000033;
+  --gray-quarter: #6F6F6F;
   --black: #000000;
+  --black-second: #000000DE;
+  --blue: #0A6BB6;
   --blue-second: #1063AC;
   --blue-terciary: #086BB5;
   --blue-quarter: #326BB5;
-  --gray-second:#0000008A;
-  --black-second:#000000DE;
-  --blue-light:#00ADEE;
-  --gray-light: #0000000D;
-  --gray-light-secondary: #F2F2F2;
-  --gray-terciary: #00000033;
-  --gray-quarter: #6F6F6F;
+  --blue-light: #00ADEE;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -109,41 +109,95 @@ a {
 }
 
 .search__title {
-  margin-top: 23px;
+  margin-top: 28px;
   text-align: center;
 }
 
 .search__container {
-  margin-left: 125px;
+  /* margin-left: 125px; */
   margin-top: 24px;
+
 }
 
-.search__container__box{
+.search__container__box {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20px;
+  margin: 10px;
 }
 
-.search__container__buttons{
+.search__container__buttons {
   border-radius: 50px;
-  width: 105px;
+  width: 102px;
   height: 32px;
-}
-
-.search__container__buttons span{
   text-transform: capitalize;
   font-size: 14px;
-  margin-left: 5px;
+  /* margin-left: 5px; */
+  cursor: pointer;
 }
 
-.bg__button{
+.search__container__buttons span {
+  width: 36px;
+  height: 21px;
+}
+
+.bg__button {
   color: var(--gray-dark);
   border: 1px solid var(--gray-dark);
   background-color: var(--gray-light);
 }
-.bg__button:hover{
-  color: var(--background);
+
+.bg__button:hover {
+  color: var(--gray-light-secondary);
   border: 1px solid var(--blue);
   background-color: var(--blue);
-  ;
+}
+
+.search__container__icon {
+  /* font-size: 10px; */
+  width: 18px;
+  height: 18px;
+  margin: 2px;
+}
+
+.search__container__input {
+  background: #0000000D 0% 0% no-repeat padding-box;
+  border-radius: 50px;
+  opacity: 1;
+  color: var(--black);
+}
+
+input::-webkit-input-placeholder {
+  font-size: 12px;
+  text-align: left;
+  padding-left: 15px;
+  opacity: 0.54;
+  letter-spacing: 0px;
+}
+
+
+/* Navigation */
+.button__terminal {
+  border: none;
+  background-color: var(--background);
+  font-size: 14px;
+  text-align: left;
+
+  text-transform: capitalize;
+}
+
+.button__terminal:hover {
+  color: var(--gray-light);
+  border: none;
+  background-color: var(--background);
+}
+
+.button__terminal__link {
+  color: var(--black-second);
+}
+
+.button__user {
+  /* background-color: #000000; */
+  /* opacity: 0.12; */
 
 }

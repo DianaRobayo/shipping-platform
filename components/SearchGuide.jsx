@@ -38,20 +38,23 @@ const SearchGuide = () => {
               <FormControl>
                 <Box className="search__container__box" >
                   <Button type="submit" className="search__container__buttons bg__button" fullWidth>
-                    <Search /> <span>Guías</span>
+                    <Search className='search__container__icon' />
+                    <span>Guías</span>
                   </Button>
                   <Button type="button" className="search__container__buttons bg__button" fullWidth>
-                    <DocumentScanner /> <span>Etiqueta</span>
+                    <DocumentScanner className='search__container__icon' />
+                    <span>Etiqueta</span>
                   </Button>
                 </Box>
                 <Grid size={{ xs: 12, md: 12 }}>
-                  <Input id="my-input" aria-describedby="my-helper-text"
+                  <Input id="my-input" className='search__container__input'
+                    aria-describedby="my-helper-text"
                     placeholder="Buscar número de guía ..."
                     {...register("search", { required: true })} />
                 </Grid>
               </FormControl>
               <Grid size={{ xs: 12, md: 12 }}>
-                <a href='/'> Buscar múltiples guías -- </a>
+                <a href='/'> Buscar múltiples guías → </a>
               </Grid>
 
               {/* <form onSubmit={handleSubmit(sendData)}>

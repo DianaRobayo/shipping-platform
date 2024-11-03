@@ -27,6 +27,11 @@ const roboto = Roboto({
 export const metadata = {
   title: "Coordinadora",
   description: "Plataforma de envíos",
+  manifest: '/manifest.json',
+  icons: {
+    apple: "/icon.png"
+  },
+  // themeColor: "#000000"
 };
 
 async function getTerminals() {
@@ -41,12 +46,16 @@ export default async function RootLayout({ children }) {
   return (
 
     <html lang="es">
+      <meta
+        name="format-detection"
+        content="telephone=no, date=no, email=no, address=no"
+      />
       <DataProvider dataTerminal={dataTerminal}>
         {/* className={`${geistSans.variable} ${geistMono.variable}`} */}
         {/* className={` ${roboto.className}`} */}
         <body className={` ${roboto.className}`} >
           <ThemeProvider theme={theme}>
-          
+
             {children}
           </ThemeProvider>
         </body>

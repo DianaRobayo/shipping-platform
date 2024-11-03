@@ -8,6 +8,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import { createContextApi } from '@/context/createContextApi';
 import { Apps, Search } from '@mui/icons-material';
+import Grid from '@mui/material/Grid2';
+
 
 const Navigation = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -39,45 +41,55 @@ const Navigation = () => {
       }}>
         <Toolbar>
           <Link href="/">
-            <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+            <IconButton edge="start" aria-label="menu" sx={{ mr: 2 }}>
               <MenuIcon />
             </IconButton>
           </Link>
-          <img width="120" height="80" src="https://coordinadora.com/wp-content/uploads/2023/03/logo-simbolo-coordinadora.svg" className="" alt="Coordinadora" decoding="async" />
+          <img width="120" height="80" src="https://coordinadora.com/wp-content/uploads/2023/03/logo-simbolo-coordinadora.svg"
+             className="" alt="Coordinadora" decoding="async" />
           <Typography variant="text" style={{ flexGrow: 1 }}>
             Tracking
           </Typography>
 
-          <Button color="inherit" onClick={handleList} aria-controls="menu-terminal">
-            <Link href="/" sx={{ textDecoration: 'none', color: 'inherit' }}>
-              Terminal:
-            </Link>
-          </Button>
-          <Menu
-            id="menu-terminal"
-            anchorEl={anchorEl}
-            anchorOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            open={Boolean(anchorEl)}
-            onClose={handleClose} >
-            {terminal?.map(dato => (
-              <MenuItem onClick={handleClose} key={dato.codigo_terminal} >
-                <Typography sx={{ textAlign: 'center' }}>{dato.abreviado}</Typography>
-              </MenuItem>
-            ))}
-          </Menu>
+          <Grid container spacing={2}>
+            <Grid xs={12} sm={6}>
+              <Typography variant="text">
+                Nombre de usuario
+              </Typography>
+            </Grid>
 
+            <Grid xs={12} sm={6}>
+              <Button className="button__terminal" onClick={handleList} aria-controls="menu-terminal">
+                <Link href="/" sx={{ textDecoration: 'none'}} className="button__terminal__link">
+                  Terminal:
+                </Link>
+              </Button>
+              <Menu
+                id="menu-terminal"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorEl)}
+                onClose={handleClose} >
+                {terminal?.map(dato => (
+                  <MenuItem onClick={handleClose} key={dato.codigo_terminal} >
+                    <Typography sx={{ textAlign: 'center' }}>{dato.abreviado}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Grid>
+          </Grid>
 
           <IconButton size="large" aria-label="menu user"
             aria-controls="menu-user" aria-haspopup="true"
-            onClick={handleMenuUser} color="inherit">
+            onClick={handleMenuUser} className='button__user'>
             <AccountCircle />
           </IconButton>
           <Menu
