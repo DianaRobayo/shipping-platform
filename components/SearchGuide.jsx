@@ -4,10 +4,9 @@ import React, { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { createContextApi } from '@/context/createContextApi';
 import { useRouter } from 'next/navigation'
-import { Card, CardContent, Box, Typography, FormControl } from '@mui/material'
-import Buttons from './Buttons';
-import Input from '@mui/material/Input';
-import InputLabel from '@mui/material/InputLabel';
+import { Card, CardContent, Box, Typography, FormControl, Container, Input, Button } from '@mui/material'
+import { DocumentScanner, Search } from '@mui/icons-material';
+import Grid from '@mui/material/Grid2';
 
 const SearchGuide = () => {
   const { register, handleSubmit } = useForm();
@@ -16,8 +15,9 @@ const SearchGuide = () => {
   const router = useRouter();
 
   const sendData = (data) => {
+    console.log('getGuide', data)
     if (data) {
-      // console.log('getGuide', data.search)
+      console.log('getGuide', data.search)
       fetchGuides(data.search);
       setGuide(data.search);
       router.push(`./detail/${data.search}`);
@@ -26,50 +26,59 @@ const SearchGuide = () => {
 
   return (
     <>
-      <Card sx={{ minWidth: 275 }}>
-        <CardContent>
-          <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
-            Word of the Day
-          </Typography>
-
-          <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>adjective</Typography>
-          <Typography variant="body2">
-            well meaning and kindly.
-            <br />
-            {'"a benevolent smile"'}
+      <Card className='search'>
+        <CardContent className="search__title">
+          <Typography variant="subtitle" color="primary">
+            Selecciona la consulta que quieres realizar
           </Typography>
         </CardContent>
+        <Container className='search__container'>
+          <Grid container spacing={2}>
+            <form onSubmit={handleSubmit(sendData)}>
+              <FormControl>
+                <Box className="search__container__box" >
+                  <Button type="submit" className="search__container__buttons bg__button" fullWidth>
+                    <Search /> <span>Guías</span>
+                  </Button>
+                  <Button type="button" className="search__container__buttons bg__button" fullWidth>
+                    <DocumentScanner /> <span>Etiqueta</span>
+                  </Button>
+                </Box>
+                <Grid size={{ xs: 12, md: 12 }}>
+                  <Input id="my-input" aria-describedby="my-helper-text"
+                    placeholder="Buscar número de guía ..."
+                    {...register("search", { required: true })} />
+                </Grid>
+              </FormControl>
+              <Grid size={{ xs: 12, md: 12 }}>
+                <a href='/'> Buscar múltiples guías -- </a>
+              </Grid>
+
+              {/* <form onSubmit={handleSubmit(sendData)}>
+              <Box display="flex" justifyContent="space-between" alignItems="center">
+                <button className="button" type="submit">
+                  <Search /> Guías
+                </button>
+                <button className="" type="button">
+                  <DocumentScanner /> Etiqueta
+                </button>
+              </Box>
+              <Grid size={{ xs: 12, md: 12 }}>
+                <input
+                  {...register("search", { required: true })}
+                  type="text"
+                  placeholder="Buscar número de guía ..." />
+              </Grid>
+
+              <Grid size={{ xs: 12, md: 12 }}>
+                <a href='/'> Buscar múltiples guías -- </a>
+              </Grid> */}
 
 
-        <Box display="flex" justifyContent="space-between" alignItems="center">
-          <Buttons type="submit" />
-          <Buttons />
-        </Box>
-        <form onSubmit={handleSubmit(sendData)}>
-          <button className="button" type="submit">
-            Guías
-          </button>
-          <button className="button" type="button">
-            Etiquetas
-          </button>
-          <input
-            {...register("search", { required: true })}
-            type="text"
-            placeholder="Buscar número de guía ..." />
+            </form>
+          </Grid>
+        </Container>
 
-          <button className="button" type="button" onClick={e => {
-            e.preventDefault();
-            router.push(`./detail/${guide}`);
-          }}>
-            buscar
-          </button>
-
-        </form>
-
-        <FormControl>
-          <InputLabel htmlFor="my-input">Email address</InputLabel>
-          <Input id="my-input" aria-describedby="my-helper-text" />
-        </FormControl>
       </Card>
     </>
   )

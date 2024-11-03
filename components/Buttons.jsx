@@ -4,12 +4,12 @@ import React from 'react'
 import { Button } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const Buttons = () => {
-
+const Buttons = ({props}) => {
+console.log('prop', props)
   return (
     <div>
-      <Button variant="contained" startIcon={<DeleteIcon />}>
-        Delete
+      <Button startIcon={<DeleteIcon />}>
+        {props}
       </Button>
     </div>
   )

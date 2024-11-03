@@ -12,6 +12,7 @@ const constUser = [
 
 const DataProvider = ({ children, dataTerminal }) => {
   const [terminal, setTerminal] = useState([]);
+  const [guide, setGuide] = useState('');
   const [guides, setGuides] = useState([]);
   const [line, setLine] = useState([]);
   const [sourceTerminal, setSourceTerminal] = useState('Sin información');
@@ -30,35 +31,44 @@ const DataProvider = ({ children, dataTerminal }) => {
     let ordered = [];
     if (dataTerminal) {
       const filteredData = dataTerminal?.data?.filter(item => item.abreviado !== '' && item.abreviado !== null);
-      filteredData.map(dato => {
-        dato.abreviado = `${dato.codigo_terminal} - ${dato.abreviado}`;
-      });
-      // Se ordena la información según el codigo terminal
-      ordered = [...filteredData].sort((a, b) => a.codigo_terminal - b.codigo_terminal);
+      if (filteredData) {
+        filteredData.map(dato => {
+          dato.abreviado = `${dato.codigo_terminal} - ${dato.abreviado}`;
+        });
+        // Se ordena la información según el codigo terminal
+        ordered = [...filteredData].sort((a, b) => a.codigo_terminal - b.codigo_terminal);
+      }
+      // console.log('order', ordered)
+      setTerminal(ordered);
+    } else {
+      setTerminal([]);
     }
-    // console.log('order', ordered)
-    setTerminal(ordered);
   }, []);
 
   const fetchGuides = async (param) => {
     try {
       console.log('param ', param)
       setLoadingGuide(true);
+      setGuide(param);
       if (param !== '' && param !== null) {
         fetchTimeLine(param);
         const dataGuides = await axios.get(`https://apiv2-test.coordinadora.com/cm-consultar-guia-ms/guia/${param}`);
         console.log('guias', dataGuides)
-        // if (dataGuides.status === 200) {
+        if (dataGuides) {
           console.log('entro guias')
           setLoadingGuide(false);
           setGuides(dataGuides.data.data);
-          processDataGuides(dataGuides.data.data);          
-        // }
+          processDataGuides(dataGuides.data.data);
+          setErrorGuide(null);
+        }
         if (dataGuides.data.isError) {
           setErrorGuide(dataGuides.statusText);
+          setGuides([]);
         }
       }
     } catch (error) {
+      setGuide('');
+      setGuides([]);
       setErrorGuide(error.message);
     }
   };
@@ -94,32 +104,39 @@ const DataProvider = ({ children, dataTerminal }) => {
       const body = {
         "guias": [param]
       }
+
       let sortByDate = [];
       setLoadingLine(true);
       if (typeof body !== 'undefined' && body !== null) {
         const dataLine = await axios.post(`https://api.coordinadora.com/cm-tracking-consulta-test/api/v1/remisiones`, body);
-        console.log('dataLine', dataLine.data.data)
+        console.log('dataLine', dataLine)
 
-        // Se ordena segun la fecha
-        sortByDate = [...dataLine.data.data[0].estado].sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
-        console.log('sortByDate', sortByDate)
-        setLine(sortByDate);
-        setLoadingLine(false);
-      }
+        if (dataLine) {
+          // Se ordena segun la fecha
+          sortByDate = [...dataLine.data.data[0].estado].sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+          console.log('sortByDate', sortByDate)
+          setLine(sortByDate);
+          setLoadingLine(false);
+          setErrorLine(null);
+        }
 
-      if (dataLine.data.isError) {
-        setErrorLine(dataLine.statusText);
+        if (dataLine.data.isError) {
+          setLine([]);
+          setErrorLine(dataLine.statusText);
+        }
       }
     } catch (error) {
+      setLine([]);
       setErrorLine(error.message);
     }
   };
 
   return (
-    <createContextApi.Provider value={{ 
-      terminal, fetchGuides, guides, loadingGuide, errorGuide, 
+    <createContextApi.Provider value={{
+      terminal, fetchGuides, guides, loadingGuide, errorGuide, guide,
       loading, error, constUser, sourceTerminal, destinationTerminal,
-      line, loadingLine, errorLine }}>
+      line, loadingLine, errorLine
+    }}>
       {/* {props.children} */}
       {children}
     </createContextApi.Provider>
