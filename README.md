@@ -1,5 +1,31 @@
-# shipping-platform
-Proyecto de coordinadora de gestión de envíos
+# Shipping-platform
+Proyecto de coordinadora de gestión de envíos, creado con el framework de Next.js y React.
+Se utiliza context api para la estructura y envío de datos entre los componentes y 
+el uso de Server Side Rendering (SSR); en la parte del diseño se instala dependencias 
+de Material UI, con la ayuda de CSS. El proyecto solo tiene dos pantallas una de búsqueda de guías y 
+la otra visualizará el detalle de la guía consultada. 
+Para el manejo de ramas se utilizo git flow permitiendo la creación de la ramas dev, test y main la principal,
+y ramas features entre cada cambio generado. 
+
+## Características
+
+- En el proyecto se integro:
+  - Renderizado del lado del servidor (SSR)
+  - Soporte para API
+  - Enrutamiento
+ 
+## Tecnologías
+
+- **Next.js**: Framework de React para la creación de aplicaciones web.
+- **React**: Librería de JavaScript para construir interfaces de usuario.
+- **Material UI**: Biblioteca de componentes para permitir el diseño de la página.
+
+## ¿Cómo instalar el proyecto?
+
+1. **Clona el repositorio**:
+   ```bash
+   git clone https://github.com/DianaRobayo/shipping-platform.git
+
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
