@@ -178,6 +178,7 @@ a {
   color: var(--black);
   background-repeat: no-repeat;
   background-clip: padding-box;
+  margin-top: 10px;
 }
 
 input::-webkit-input-placeholder {
@@ -198,6 +199,11 @@ input::-webkit-input-placeholder {
   opacity: 1;
   line-height: 21px;
   font-weight: 300;
+  margin-top: 10px;
+}
+
+.search__container__link a{
+  text-align: center;
 }
 
 /* Navigation */
