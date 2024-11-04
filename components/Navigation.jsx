@@ -58,7 +58,7 @@ const Navigation = () => {
 
             <Grid xs={12} sm={12}>
               <Button className="terminal__button" onClick={handleList} aria-controls="menu-terminal">
-                <Link href="/" sx={{ textDecoration: 'none'}} className="terminal__button__link">
+                <Link href="" sx={{ textDecoration: 'none'}} className="terminal__button__link">
                   Terminal: 01 BOG
                 </Link>
               </Button>
