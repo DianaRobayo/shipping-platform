@@ -8,8 +8,7 @@ import TimeLine from "@/components/details/TimeLine";
 import Tabs from "@/components/details/Tabs";
 import SectionAccordion from "@/components/details/SectionAccordion";
 
-const Detail = ({ params }) => {
-  const { id } = React.use(params);
+const Detail = () => {
   return (
     <div>
       <Navigation />

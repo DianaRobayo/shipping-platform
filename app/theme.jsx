@@ -48,8 +48,7 @@ const theme = createTheme({
       main: '#EE5A31', // Color naranja
     },
     background: {
-      //   default: '#FFFFFF', // Fondo por defecto
-      default: '#FFFFFF', // Fondo por defecto
+      default: '#FFFFFF', 
       color: '#000000'
     },
   },
