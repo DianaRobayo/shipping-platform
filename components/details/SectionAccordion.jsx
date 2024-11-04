@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import { Accordion, AccordionSummary, AccordionDetails, Tab, Box } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Button from '@mui/material/Button';
 
 const SectionAccordion = () => {
   const [value, setValue] = useState('1');
@@ -12,7 +11,6 @@ const SectionAccordion = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
 
   return (
     <div>

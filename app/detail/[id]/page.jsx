@@ -10,7 +10,6 @@ import SectionAccordion from "@/components/details/SectionAccordion";
 
 const Detail = ({ params }) => {
   const { id } = React.use(params);
-  console.log('param', id)
   return (
     <div>
       <Navigation />

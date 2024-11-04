@@ -4,8 +4,7 @@ import { createContextApi } from '@/context/createContextApi';
 import { Box, Alert, Stack, Typography } from '@mui/material';
 import {
   Timeline, TimelineItem, TimelineSeparator,
-  TimelineConnector, TimelineContent, TimelineOppositeContent,
-  TimelineDot
+  TimelineContent, TimelineDot
 } from '@mui/lab';
 import LinearProgress from '@mui/material/LinearProgress';
 import { Business, LocalShipping } from '@mui/icons-material';
@@ -17,7 +16,6 @@ const constantsLine = {
 
 const TimeLine = () => {
   const { line, loadingLine, errorLine } = useContext(createContextApi);
-  console.log('linea', errorLine)
 
   return (
     <div>
@@ -38,7 +36,8 @@ const TimeLine = () => {
         }
         <Timeline className="timeline" position="right" sx={{ display: 'flex', flexDirection: 'row' }}>
           {line.map((item, index) => (
-            <TimelineItem className="timeline__item" key={index} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <TimelineItem className="timeline__item" key={index} 
+              sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <TimelineSeparator className='timeline__item__logo'>
                 <TimelineDot className='timeline__item__logo__dot'>
                   {constantsLine[item.codigo]}
@@ -60,8 +59,6 @@ const TimeLine = () => {
       </Box>
     </div>
   )
-
-
 }
 
 export default TimeLine
