@@ -1,37 +1,36 @@
 # Shipping-platform
-Proyecto de coordinadora de gestión de envíos, creado con el framework de Next.js y React.
-Se utiliza context api para la estructura y envío de datos entre los componentes y 
-el uso de Server Side Rendering (SSR). El proyecto solo tiene dos pantallas una de búsqueda de guías y 
-la otra visualizará el detalle de la guía consultada. 
-Para el manejo de ramas se utilizo git flow permitiendo la creación de la ramas dev, test y main la principal,
-y ramas features entre cada cambio generado. 
 
-## Características
+Shipping management coordinator project, created with the Next.js framework and React. Context API is used for the structure and sending of data between the components and the use of Server Side Rendering (SSR). 
+The project only has two screens, one for searching for guides and the other will display the details of the guide consulted. 
+To manage branches, git flow was used, allowing the creation of the dev, test and main branches, and features branches between each generated change.
 
-- En el proyecto se integro:
-  - En el navbar se tomo el link del logo de coordinadora
-  - Renderizado del lado del servidor (SSR)
-  - Uso de context API
-  - Enrutamiento
-  - Permite instalarse en dispositivos móviles con PWA creando un archivo llamado manifest.json
-  - Para el diseño de la página se utilizo Material UI y CSS
-  - Realización de pruebas unitarias con jest
+## Characteristics
 
- 
-## Tecnologías
+- The project included:
+  - In the navbar the link of the Coordinadora logo was taken
+  - Server Side Rendering (SSR)
+  - Use of context API
+  - Routing with Next
+  - Allows installation on mobile devices with PWA by creating a file called manifest.json
+  - Material UI and CSS were used for the design of the page
+  - Performing unit tests with jest
 
-- **Next.js**: Framework de React para la creación de aplicaciones web.
-- **React**: Librería de JavaScript para construir interfaces de usuario.
-- **Material UI**: Biblioteca de componentes para permitir el diseño de la página.
-- **Jest**: Framework de pruebas en JavaScript
+## Technologies
 
-## ¿Cómo instalar el proyecto?
+- **Next.js**: React framework for creating web applications.
+- **React**: JavaScript library to build user interfaces.
+- **UI Material**: Component library to allow page design.
+- **Jest**: JavaScript testing framework
 
-1. **Clona el repositorio**:
+## How to install the project?
+
+1. **Clone the repository**:
+  First, run the development server:
    ```bash
    git clone https://github.com/DianaRobayo/shipping-platform.git
 
-2. **Para correr el repositorio**:
+2. **To run the project**:
+
 ```bash
 npm run dev
 # or
@@ -42,14 +41,15 @@ pnpm dev
 bun dev
 ```
 
-De forma local la aplicación se inicia en [http://localhost:3000](http://localhost:3000) .
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-3. **Para instalar la app en móvil**:
-En la pantalla principal aparece un icono de descarga e instalación móvil y el nombre del archivo se nombro 
-'Plataforma de envios' como se muestra en la siguiente imagen.
-![alt text](image.png)
+3. **To install the app on mobile**:
+  A mobile download and installation icon appears on the main screen and the file name is named 'Plataforma de envios' as shown in the following image.
 
+  ![alt text](image.png)
 
+4. **Tests**:
+  To perform the unit tests you must execute the npm run test command and it will show the execution and validation of the tests in the terminal
 
 ## Deploy on Vercel
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
