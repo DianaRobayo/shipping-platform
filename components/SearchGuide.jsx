@@ -15,7 +15,7 @@ const SearchGuide = () => {
   const router = useRouter();
 
   const sendData = (data) => {
-    if (data) {
+    if (data?.search !== null && data?.search !== '') {
       fetchGuides(data.search);
       setGuide(data.search);
       router.push(`./detail/${data.search}`);
