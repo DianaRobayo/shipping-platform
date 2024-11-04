@@ -15,12 +15,15 @@ y ramas features entre cada cambio generado.
   - Enrutamiento
   - Permite instalarse en dispositivos móviles con PWA creando un archivo llamado manifest.json
   - Para el diseño de la página se utilizo Material UI y CSS
+  - Realización de pruebas unitarias con jest
+
  
 ## Tecnologías
 
 - **Next.js**: Framework de React para la creación de aplicaciones web.
 - **React**: Librería de JavaScript para construir interfaces de usuario.
 - **Material UI**: Biblioteca de componentes para permitir el diseño de la página.
+- **Jest**: Framework de pruebas en JavaScript
 
 ## ¿Cómo instalar el proyecto?
 

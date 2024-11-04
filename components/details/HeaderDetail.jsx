@@ -9,8 +9,6 @@ import { Error, Link } from '@mui/icons-material';
 
 const HeaderDetail = () => {
   const { guide, guides } = useContext(createContextApi);
-  console.log('fuide', guide)
-
 
   return (
     <>
@@ -35,18 +33,14 @@ const HeaderDetail = () => {
           <Typography sx={{ color: 'text.primary', fontSize: 14 }}
             className='header__title__text'>
             Macroestado:
-            <span className='header__subtitle__text__second'> xx </span>
+            <span className='header__subtitle__text__second'> N/A </span>
           </Typography>
 
           <Typography sx={{ color: 'text.primary', fontSize: 14 }}
             className='header__title__text'>
             Estado Tracking Guía:
-            <span className='header__subtitle__text__second'> xx </span>
-            {/* <IconButton size="large" aria-label="title"
-              aria-controls="title" aria-haspopup="true"
-              className='' > */}
+            <span className='header__subtitle__text__second'> N/A </span>
               <Error className='detail__icon' color='orange' />
-            {/* </IconButton> */}
           </Typography>
         </Grid>
 

@@ -4,7 +4,6 @@ import DataProvider from "@/context/DataProvider";
 import { Roboto } from 'next/font/google'
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
-import Typography from '@mui/material/Typography';
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -12,17 +11,6 @@ const roboto = Roboto({
   display: 'swap',
   variable: '--font-roboto',
 });
-
-// const geistSans = localFont({
-//   src: "./fonts/GeistVF.woff",
-//   variable: "--font-geist-sans",
-//   weight: "100 900",
-// });
-// const geistMono = localFont({
-//   src: "./fonts/GeistMonoVF.woff",
-//   variable: "--font-geist-mono",
-//   weight: "100 900",
-// });
 
 export const metadata = {
   title: "Coordinadora",
@@ -51,11 +39,8 @@ export default async function RootLayout({ children }) {
         content="telephone=no, date=no, email=no, address=no"
       />
       <DataProvider dataTerminal={dataTerminal}>
-        {/* className={`${geistSans.variable} ${geistMono.variable}`} */}
-        {/* className={` ${roboto.className}`} */}
         <body className={` ${roboto.className}`} >
           <ThemeProvider theme={theme}>
-
             {children}
           </ThemeProvider>
         </body>

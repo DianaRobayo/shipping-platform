@@ -15,8 +15,6 @@ const Navigation = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [anchorUser, setAnchorUser] = useState(null);
   const { terminal, constUser } = useContext(createContextApi) || {};;
-  // console.log('navigation', terminal)
-  // console.log('constUser', constUser)
 
   const handleList = (event) => {
     setAnchorEl(event.currentTarget);

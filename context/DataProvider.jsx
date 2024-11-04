@@ -26,8 +26,6 @@ const DataProvider = ({ children, dataTerminal }) => {
 
 
   useEffect(() => {
-    console.log('prop', children)
-    console.log('dataTerminal', dataTerminal)
     let ordered = [];
     if (dataTerminal) {
       const filteredData = dataTerminal?.data?.filter(item => item.abreviado !== '' && item.abreviado !== null);
@@ -38,7 +36,6 @@ const DataProvider = ({ children, dataTerminal }) => {
         // Se ordena la información según el codigo terminal
         ordered = [...filteredData].sort((a, b) => a.codigo_terminal - b.codigo_terminal);
       }
-      // console.log('order', ordered)
       setTerminal(ordered);
     } else {
       setTerminal([]);
@@ -47,15 +44,12 @@ const DataProvider = ({ children, dataTerminal }) => {
 
   const fetchGuides = async (param) => {
     try {
-      console.log('param ', param)
       setLoadingGuide(true);
       setGuide(param);
       if (param !== '' && param !== null) {
         fetchTimeLine(param);
         const dataGuides = await axios.get(`https://apiv2-test.coordinadora.com/cm-consultar-guia-ms/guia/${param}`);
-        console.log('guias', dataGuides)
         if (dataGuides) {
-          console.log('entro guias')
           setLoadingGuide(false);
           setGuides(dataGuides.data.data);
           processDataGuides(dataGuides.data.data);
@@ -109,12 +103,10 @@ const DataProvider = ({ children, dataTerminal }) => {
       setLoadingLine(true);
       if (body) {
         const dataLine = await axios.post(`https://api.coordinadora.com/cm-tracking-consulta-test/api/v1/remisiones`, body);
-        console.log('dataLine', dataLine)
 
         if (dataLine) {
           // Se ordena segun la fecha
           sortByDate = [...dataLine.data.data[0].estado].sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
-          console.log('sortByDate', sortByDate)
           setLine(sortByDate);
           setLoadingLine(false);
           setErrorLine(null);
